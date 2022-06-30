@@ -50,7 +50,7 @@ class _CartScreenState extends State<CartScreen> {
                               return AlertDialog(
                                 title: const Text('Confirm Purchase',
                                     style: TextStyle(fontSize: 25)),
-                                content: Text('Total Price: \$ ${cartModel.price}',style: const TextStyle(fontSize: 20)),
+                                content: Text('Total Price: \$ ${cartModel.price.toStringAsFixed(2)}',style: const TextStyle(fontSize: 20)),
                                 actions: [
                                   TextButton(
                                       onPressed: () {
