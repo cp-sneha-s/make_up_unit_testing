@@ -37,47 +37,41 @@ class _CartScreenState extends State<CartScreen> {
                       });
                 }),
               ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-                child: Expanded(
-                  child: ElevatedButton(
-                      onPressed: () {
-                        cartModel.getPrice();
-                        showDialog(
-                            context: context,
-                            builder: (_) {
-                              return AlertDialog(
-                                title: const Text('Confirm Purchase',
-                                    style: TextStyle(fontSize: 25)),
-                                content: Text('Total Price: \$ ${cartModel.price.toStringAsFixed(2)}',style: const TextStyle(fontSize: 20)),
-                                actions: [
-                                  TextButton(
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                      },
-                                      child: const Text('Cancel',
-                                          style: TextStyle(fontSize: 20))),
-                                  TextButton(
-                                      onPressed: () {
-                                        Navigator.of(context).push(
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    const HomeScreen()));
-                                        cartModel.setCart([]);
-                                      },
-                                      child: const Text(
-                                        'Ok',
-                                        style: TextStyle(fontSize: 20),
-                                      ))
-                                ],
-                              );
-                            });
-                      },
-                      child:  Text(' Confirm ',
-                          style: TextStyle(fontSize: 25))),
-                ),
-              ),
+              ElevatedButton(
+                  onPressed: () {
+                    cartModel.getPrice();
+                    showDialog(
+                        context: context,
+                        builder: (_) {
+                          return AlertDialog(
+                            title: const Text('Confirm Purchase',
+                                style: TextStyle(fontSize: 25)),
+                            content: Text('Total Price: \$ ${cartModel.price.toStringAsFixed(2)}',style: const TextStyle(fontSize: 20)),
+                            actions: [
+                              TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: const Text('Cancel',
+                                      style: TextStyle(fontSize: 20))),
+                              TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const HomeScreen()));
+                                    cartModel.setCart([]);
+                                  },
+                                  child: const Text(
+                                    'Ok',
+                                    style: TextStyle(fontSize: 20),
+                                  ))
+                            ],
+                          );
+                        });
+                  },
+                  child:  Text(' Confirm ',
+                      style: TextStyle(fontSize: 25))),
             ],
           )),
     );

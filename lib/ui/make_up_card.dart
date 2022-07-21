@@ -14,6 +14,7 @@ class MakeUpcard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      key: ValueKey(product.name),
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Row(
@@ -61,7 +62,10 @@ class MakeUpcard extends StatelessWidget {
                 ],
               ),
             ),
-            TextButton(onPressed: (){
+            TextButton(
+              key: ValueKey('Add-button'),
+            
+                onPressed: (){
               Provider.of<CartModel>(context,listen: false).addToCart(product);
             }, child: const Text('ADD',style:  TextStyle(
                 fontSize: 20,
